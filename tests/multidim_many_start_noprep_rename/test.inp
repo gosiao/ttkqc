@@ -1,0 +1,18 @@
+# general info:
+--ttk_task=start
+--resampled_dim=5,5,5
+#
+# info about input files:
+--finp=formatted_dens1.csv
+--prep=False
+--npoints=10,10,10
+--varnames_rename=rho1:rho_so
+#
+--finp=formatted_dens2.csv
+--prep=False
+--npoints=10,10,10
+--varnames_rename=rho1:rho_nr
+#
+# info about output files:
+--fout_num=start_data.vti
+--fout_vis=start_state.pvsm

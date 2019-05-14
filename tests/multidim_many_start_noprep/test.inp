@@ -1,0 +1,16 @@
+# general info:
+--ttk_task=start
+--resampled_dim=5,5,5
+#
+# info about input files (prepared in advance; here: copied from ../multidim_many_start_from_qc test):
+--finp=formatted_dens1.csv
+--prep=False
+--npoints=10,10,10
+#
+--finp=formatted_dens2.csv
+--prep=False
+--npoints=10,10,10
+#
+# info about output files from TTK analysis:
+--fout_num=start_data.vti
+--fout_vis=start_state.pvsm

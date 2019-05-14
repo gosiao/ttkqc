@@ -1,0 +1,22 @@
+#
+# what do we want to calculate in TTK:
+--ttk_task=start
+--resampled_dim=5,5,5
+#
+# "ttk_task=start" means that we ask to generate a "start" data,
+# all other TTK jobs start from this "start data", so this is the first step to all TTK runs 
+# in this case the expected input is a text file from qchem calculations
+# and the expected output is a TTK *.vti file (and optionally a state *.pvsm file):
+#
+#
+# info about input files (in this case: text file from qchem calculations):
+--finp=formatted_dens.csv
+--prep=False
+--np=10,10,10
+#
+# info about output files from TTK analysis:
+# these can be opened in TTK:
+# paraview start_data.vti
+# or
+# paraview --state=start_state.pvsm
+--fout_num=start_data.vti

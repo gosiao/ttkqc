@@ -1,0 +1,17 @@
+#
+# what do we want to calculate in TTK:
+--ttk_task=ms
+--resampled_dim=5,5,5
+#
+# "ttk_task" different than "start" means that we assume that the "start_data.vti"
+# is available and it should be provided to "finp"
+# in this case we also need to set up "choose_data"
+#
+#
+# info about input files (in this case: text file from qchem calculations):
+--finp=start_data.vti
+--choose_data=rho1
+#
+# info about output files from TTK analysis:
+--fout_num=cps.csv
+--fout_num_scope=full

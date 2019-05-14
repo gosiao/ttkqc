@@ -1,0 +1,31 @@
+# general info
+--ttk_task=ms
+--resampled_dim=5,5,5
+#
+# info about input files:
+--finp=start_data.vti
+#
+# calculate gradient:
+--calc_gradient=rho1
+--calc_gradient_name=grad_rho1
+#
+# apply calculator
+# if you apply more then one Calculator filter, then keep the correct order of Calculators!
+--calc_name=norm_grad1
+--calc_fun=mag(grad_rho1)
+#
+--calc_name=s1
+--calc_fun=0.16162046149926804*norm_grad1/(rho1^(4.0/3.0))
+#
+#
+--calc_name=log_s1
+--calc_fun=log10(s1)
+#
+# choose data for which critical points will be calculated:
+--choose_data=log_s1
+#
+# info about output files:
+--fout_num=cps.csv
+--fout_num_scope=full
+#--fout_num_postprocess=cps_summary
+#--fout_num_postprocess=cps_sort_by_pairs(settings:choose_pair_type=m1,choose_pair_identifier=10)

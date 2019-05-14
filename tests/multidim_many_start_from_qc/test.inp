@@ -1,0 +1,23 @@
+# general info:
+--ttk_task=start
+--resampled_dim=5,5,5
+#
+# info about input files (from qchem calculations):
+--finp=dens1.csv
+--prep=True
+#--finp_prep=test1.csv
+--varnames=rho1,rho2
+--nr_header_lines=2
+--npoints=10,10,10
+--sep= 
+#
+--finp=dens2.csv
+--prep=True
+--varnames=rho3,rho4
+--nr_header_lines=2
+--npoints=10,10,10
+--sep= 
+#
+# info about output files from TTK analysis:
+--fout_num=start_data.vti
+--fout_vis=start_state.pvsm
