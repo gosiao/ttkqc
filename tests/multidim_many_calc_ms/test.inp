@@ -7,11 +7,9 @@
 #
 # apply calculator
 # if you apply more then one Calculator filter, then keep the correct order of Calculators!
---calc_name=diff_rho1_rho3
---calc_fun=rho1-rho3
+--calc_fun=1:rho1-rho3:diff_rho1_rho3
 #
---calc_name=log_diff
---calc_fun=log10(diff_rho1_rho3)
+--calc_fun=2:log10(diff_rho1_rho3):log_diff
 #
 # choose data for which critical points will be calculated:
 --choose_data=log_diff
@@ -19,5 +17,5 @@
 # info about output files:
 --fout_num=cps.csv
 --fout_num_scope=full
-#--fout_num_postprocess=cps_summary
---fout_num_postprocess=cps_sort_by_pairs(settings:choose_pair_type=m1,choose_pair_identifier=10)
+--fout_num_postprocess=cps_summary
+#--fout_num_postprocess=cps_sort_by_pairs(settings:choose_pair_type=m1,choose_pair_identifier=10)

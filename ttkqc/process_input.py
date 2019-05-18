@@ -245,7 +245,8 @@ class input_data:
         if args.calc_fun is not None:
             self.options["calc_fun"] = args.calc_fun
         else:
-            self.options["calc_fun"]  = [None for x in range(self.nr_inp_blocks)]
+            #self.options["calc_fun"]  = [None for x in range(self.nr_inp_blocks)]
+            self.options["calc_fun"]  = None
 
         if args.calc_gradient is not None:
             self.options["calc_gradient"] = args.calc_gradient

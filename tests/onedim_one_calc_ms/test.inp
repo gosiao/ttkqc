@@ -9,8 +9,7 @@
 #
 # info about input files (in this case: text file from qchem calculations):
 --finp=start_data.vti
---calc_name=log_rho1
---calc_fun=log10(rho1)
+--calc_fun=1:log10(rho1):log_rho1
 --choose_data=log_rho1
 #
 # info about output files from TTK analysis:
