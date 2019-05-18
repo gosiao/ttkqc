@@ -250,7 +250,8 @@ class input_data:
         if args.calc_gradient is not None:
             self.options["calc_gradient"] = args.calc_gradient
         else:
-            self.options["calc_gradient"]  = [None for x in range(self.options["calc_gradient"])]
+            #self.options["calc_gradient"]  = [None for x in range(self.nr_inp_blocks)]
+            self.options["calc_gradient"]  = None
 
 
         # to do - choose_data

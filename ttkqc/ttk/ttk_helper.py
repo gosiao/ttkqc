@@ -9,6 +9,8 @@ def set_pipeline(calc=None, grad=None):
     """
     get the order of calculator, gradient and threshold filters in the correct order
     """
+    print('calc = ', calc)
+    print('grad = ', grad)
     pipeline = {}
     if calc is not None:
         for c in calc:
