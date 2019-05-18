@@ -20,7 +20,6 @@ class ttk_multi( object ):
         self.fout_num      = common_options['fout_num']
         self.fout_num_scope= common_options['fout_num_scope']
         self.calc_fun      = common_options['calc_fun']
-        self.calc_name     = common_options['calc_name']
 
         self.resampled_dim = [int(x) for x in common_options['resampled_dim'].split(',')]
 

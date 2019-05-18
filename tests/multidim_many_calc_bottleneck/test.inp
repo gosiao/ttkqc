@@ -7,12 +7,9 @@
 --finp=start_data.vti
 #
 # apply calculator
-# if you apply more then one Calculator filter, then keep the correct order of Calculators!
---calc_name=log1
---calc_fun=log10(rho_geom1_nr)
+--calc_fun=1:log10(rho_geom1_nr):log1
 #
---calc_name=log3
---calc_fun=log10(rho_geom1_so)
+--calc_fun=2:log10(rho_geom1_so):log3
 #
 # choose two variables to compare:
 --choose_data=log1,log3
