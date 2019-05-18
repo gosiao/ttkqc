@@ -257,12 +257,6 @@ class input_data:
 
         # to do - choose_data
 
-        #if args.fout_num_postprocess is not None:
-        #    self.options["fout_num_postprocess"] = args.fout_num_postprocess
-        #else:
-        #    self.options["fout_num_postprocess"] = None
-
-
         if (self.options['ttk_task'] == 'start'):
             # generate (resampled) start data in vti format for TTK
             # todo: check input format!
@@ -369,6 +363,8 @@ class input_data:
 
                 if args.fout_num_postprocess is not None:
                     d['fout_num_postprocess'] = args.fout_num_postprocess
+                else:
+                    d['fout_num_postprocess'] = None
 
                 self.ttk_multi_data = d
 
