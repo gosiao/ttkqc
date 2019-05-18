@@ -257,10 +257,10 @@ class input_data:
 
         # to do - choose_data
 
-        if args.fout_num_postprocess is not None:
-            self.options["fout_num_postprocess"] = args.fout_num_postprocess
-        else:
-            self.options["fout_num_postprocess"] = None
+        #if args.fout_num_postprocess is not None:
+        #    self.options["fout_num_postprocess"] = args.fout_num_postprocess
+        #else:
+        #    self.options["fout_num_postprocess"] = None
 
 
         if (self.options['ttk_task'] == 'start'):
