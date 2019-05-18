@@ -47,25 +47,25 @@ def read_input(finp):
 ####################################################
 ## tests - critical points from persistence diagrams
 ####################################################
-testdirs=["onedim_one_ms",
-          "onedim_one_calc_ms",
-          "multidim_many_calc_ms"]
-
-for d in testdirs:
-    print("running test: ", d)
-    # we assume that start_data.vti is in the directory
-    os.chdir(d)
-    inp = "test.inp"
-    args=read_input(inp)
-    data = ttkqc.process_input.input_data(args)
-    data.parse_options()
-    data.print_options()
-
-    ttk_data = ttkcps.ttk_cps(data.options, data.ttk_scalar_data)
-    ttk_data.get_cps(save_cps_to_file=True)
-    os.chdir('../')
-    print("-------------------------------------------")
-
+#testdirs=["onedim_one_ms",
+#          "onedim_one_calc_ms",
+#          "multidim_many_calc_ms"]
+#
+#for d in testdirs:
+#    print("running test: ", d)
+#    # we assume that start_data.vti is in the directory
+#    os.chdir(d)
+#    inp = "test.inp"
+#    args=read_input(inp)
+#    data = ttkqc.process_input.input_data(args)
+#    data.parse_options()
+#    data.print_options()
+#
+#    ttk_data = ttkcps.ttk_cps(data.options, data.ttk_scalar_data)
+#    ttk_data.get_cps(save_cps_to_file=True)
+#    os.chdir('../')
+#    print("-------------------------------------------")
+#
 #
 #
 #

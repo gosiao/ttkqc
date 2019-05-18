@@ -130,7 +130,7 @@ class input_data:
                                    action='append',
                                    #action='store',
                                    #nargs='*',
-                                   choices=['cps_summary', 'cps_sort_by_pairs'],
+                                   #choices=['cps_summary', 'cps_sort_by_pairs'],
                                    required=False,
                                    help='''
                                         postprocess the data

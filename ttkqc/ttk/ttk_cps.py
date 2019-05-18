@@ -27,7 +27,7 @@ class ttk_cps( object ):
         self.fout_num      = common_options['fout_num']
         self.fout_num_scope= common_options['fout_num_scope']
         self.calc_fun      = common_options['calc_fun']
-        self.calc_gradient          = common_options['calc_gradient']
+        self.calc_gradient = common_options['calc_gradient']
 
         self.resampled_dim = [int(x) for x in common_options['resampled_dim'].split(',')]
 
@@ -119,7 +119,6 @@ class ttk_cps( object ):
         # save data
         if save_to_file:
             if self.cps_data['fout_num_postprocess'] is not None:
-                print('BUBA postprocessing!')
                 helper.save_data(self.fout_num_scope,
                                  tTKPersistenceDiagram,
                                  self.fout_num,

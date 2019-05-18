@@ -169,9 +169,14 @@ def save_data(data_type, data_object, file_out, postprocess=None):
 
 
 
-def postprocess_num_data(scope, outputs):
+def postprocess_num_data(options, outputs):
 
-    if 'cps_sort_by_pairs' in scope:
+    print('options = ', options)
+    for opt in options:
+        w = opt.strip().split(':')
+        print('w! = ', w)
+
+    if 'cps_summary' in options:
         try:
             with open(outputs['point_data'], 'r') as f_points:
                 # read all points
