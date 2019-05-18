@@ -2,29 +2,23 @@
 --ttk_task=ms
 --resampled_dim=5,5,5
 #
-# info about input files:
+# input file (vti):
 --finp=start_data.vti
 #
 # calculate gradient:
---calc_gradient=rho1
---calc_gradient_name=grad_rho1
+--calc_gradient=1:rho1:grad_rho1
 #
-# apply calculator
-# if you apply more then one Calculator filter, then keep the correct order of Calculators!
---calc_name=norm_grad1
---calc_fun=mag(grad_rho1)
+# apply calculators:
+--calc_fun=2:mag(grad_rho1):norm_grad1
 #
---calc_name=s1
---calc_fun=0.16162046149926804*norm_grad1/(rho1^(4.0/3.0))
+--calc_fun=3:0.16162046149926804*norm_grad1/(rho1^(4.0/3.0)):s1
 #
-#
---calc_name=log_s1
---calc_fun=log10(s1)
+--calc_fun=4:log10(s1):log_s1
 #
 # choose data for which critical points will be calculated:
 --choose_data=log_s1
 #
-# info about output files:
+# output files:
 --fout_num=cps.csv
 --fout_num_scope=full
 #--fout_num_postprocess=cps_summary

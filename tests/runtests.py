@@ -19,56 +19,37 @@ def read_input(finp):
                 args.append(line.strip())
         return args
 
-#########################################
-# tests generating "start data" from TTK:
-#########################################
-testdirs=["onedim_one_start_from_qc",
-          "onedim_one_start_noprep",
-          "multidim_many_start_from_qc",
-          "multidim_many_start_noprep",
-          "multidim_many_start_noprep_rename"]
-
-for d in testdirs:
-
-    print("running test: ", d)
-    os.chdir(d)
-    inp = "test.inp"
-    args=read_input(inp)
-    data = ttkqc.process_input.input_data(args)
-    data.parse_options()
-    data.print_options()
-    data.prepare_csvdata_files_for_ttk()
-
-    ttk_data = ttk0.ttk_start(data.options, data.ttk_start_data)
-    ttk_data.from_csv_to_start_data()
-    os.chdir('../')
-    print("-------------------------------------------")
-
-###################################################
-# tests - critical points from persistence diagrams
-###################################################
-testdirs=["onedim_one_ms",
-          "onedim_one_calc_ms",
-          "multidim_many_calc_ms"]
-
-for d in testdirs:
-    print("running test: ", d)
-    # we assume that start_data.vti is in the directory
-    os.chdir(d)
-    inp = "test.inp"
-    args=read_input(inp)
-    data = ttkqc.process_input.input_data(args)
-    data.parse_options()
-    data.print_options()
-
-    ttk_data = ttkcps.ttk_cps(data.options, data.ttk_scalar_data)
-    ttk_data.get_cps(save_cps_to_file=True)
-    os.chdir('../')
-    print("-------------------------------------------")
-
-
-## get summary for selected tests:
-#testdirs=["multidim_many_calc_ms"]
+##########################################
+## tests generating "start data" from TTK:
+##########################################
+#testdirs=["onedim_one_start_from_qc",
+#          "onedim_one_start_noprep",
+#          "multidim_many_start_from_qc",
+#          "multidim_many_start_noprep",
+#          "multidim_many_start_noprep_rename"]
+#
+#for d in testdirs:
+#
+#    print("running test: ", d)
+#    os.chdir(d)
+#    inp = "test.inp"
+#    args=read_input(inp)
+#    data = ttkqc.process_input.input_data(args)
+#    data.parse_options()
+#    data.print_options()
+#    data.prepare_csvdata_files_for_ttk()
+#
+#    ttk_data = ttk0.ttk_start(data.options, data.ttk_start_data)
+#    ttk_data.from_csv_to_start_data()
+#    os.chdir('../')
+#    print("-------------------------------------------")
+#
+####################################################
+## tests - critical points from persistence diagrams
+####################################################
+#testdirs=["onedim_one_ms",
+#          "onedim_one_calc_ms",
+#          "multidim_many_calc_ms"]
 #
 #for d in testdirs:
 #    print("running test: ", d)
@@ -84,10 +65,32 @@ for d in testdirs:
 #    ttk_data.get_cps(save_cps_to_file=True)
 #    os.chdir('../')
 #    print("-------------------------------------------")
+#
+#
+#
+#
+#testdirs=["multidim_many_calc_bottleneck"]
+#
+#for d in testdirs:
+#    print("running test: ", d)
+#    # we assume that start_data.vti is in the directory
+#    os.chdir(d)
+#    inp = "test.inp"
+#    args=read_input(inp)
+#    data = ttkqc.process_input.input_data(args)
+#    data.parse_options()
+#    data.print_options()
+#
+#    fulloptions = data.options
+#    #
+#    #
+#    ttk_btln = ttkmulti.ttk_multi(data.options, data.ttk_multi_data)
+#    ttk_btln.bottleneck_distance()
+#    os.chdir('../')
+#    print("-------------------------------------------")
 
-
-
-testdirs=["multidim_many_calc_bottleneck"]
+# tests new
+testdirs=["multidim_many_calc_ms_real"]
 
 for d in testdirs:
     print("running test: ", d)
@@ -99,11 +102,8 @@ for d in testdirs:
     data.parse_options()
     data.print_options()
 
-    fulloptions = data.options
-    #
-    #
-    ttk_btln = ttkmulti.ttk_multi(data.options, data.ttk_multi_data)
-    ttk_btln.bottleneck_distance()
+    ttk_data = ttkcps.ttk_cps(data.options, data.ttk_scalar_data)
+    ttk_data.get_cps(save_cps_to_file=True)
     os.chdir('../')
     print("-------------------------------------------")
 

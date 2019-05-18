@@ -5,6 +5,29 @@ import os
 import csv
 
 
+def set_pipeline(calc=None, grad=None):
+    """
+    get the order of calculator, gradient and threshold filters in the correct order
+    """
+    pipeline = {}
+    if calc is not None:
+        for c in calc:
+            k_calc = c.strip().split(':')[0]
+            v_calc = c.strip().split(':')[1]
+            n_calc = c.strip().split(':')[2]
+            #print('k, v, n = ', k_calc, v_calc, n_calc)
+            pipeline[int(k_calc)] = ['calc', v_calc, n_calc]
+    if grad is not None:
+        for g in grad:
+            k_grad = g.strip().split(':')[0]
+            v_grad = g.strip().split(':')[1]
+            n_grad = g.strip().split(':')[2]
+            #print('k, v, n = ', k_grad, v_grad, n_grad)
+            pipeline[int(k_grad)] = ['grad', v_grad, n_grad]
+    #for k in sorted(pipeline):
+    #    print('k = ', k, pipeline[k])
+    return pipeline
+
 
 def get_value_in_point(data, varname, point_x, point_y, point_z):
 
@@ -39,6 +62,19 @@ def apply_threshold(source, source_type, source_name, min_value, max_value):
 
     return threshold
 
+def apply_gradientOfUnstructuredDataSet(source, source_type, source_name, result_name):
+    """
+    source      = input TTK object
+    source_type = 'POINTS' or 'CELLS'
+    source_name = string, depends on the "source"
+    result_name = name of the calculated gradient
+    """
+
+    gradient = GradientOfUnstructuredDataSet(Input=source)
+    gradient.ScalarArray = [source_type, source_name]
+    gradient.ResultArrayName = result_name
+
+    return gradient
 
 
 def calculator(name, function, source_file=None, source_other=None):

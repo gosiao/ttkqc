@@ -102,18 +102,17 @@ class input_data:
                                         default: 256x256x256
                                         ''')
 
-        optional_args.add_argument('--calc_name',
-                                   dest='calc_name',
-                                   action='append',
-                                   required=False,
-                                   help='name of "Result" from the Calculator filter')
-
         optional_args.add_argument('--calc_fun',
                                    dest='calc_fun',
                                    action='append',
                                    required=False,
                                    help='function to apply in the Calculator filter')
 
+        optional_args.add_argument('--calc_gradient',
+                                   dest='calc_gradient',
+                                   action='append',
+                                   required=False,
+                                   help='apply the gradientOfUnstructuredDataSet filter')
 
         optional_args.add_argument('--choose_data',
                                    dest='choose_data',
@@ -245,15 +244,13 @@ class input_data:
 
         if args.calc_fun is not None:
             self.options["calc_fun"] = args.calc_fun
-
-            if args.calc_name is not None:
-                self.options["calc_name"] = args.calc_name
-            else:
-            # test this
-                self.options["calc_name"] = ['Result' for x in range(len(self.nr_inp_blocks))]
         else:
             self.options["calc_fun"]  = [None for x in range(self.nr_inp_blocks)]
-            self.options["calc_name"] = [None for x in range(self.nr_inp_blocks)]
+
+        if args.calc_gradient is not None:
+            self.options["calc_gradient"] = args.calc_gradient
+        else:
+            self.options["calc_gradient"]  = [None for x in range(self.options["calc_gradient"])]
 
 
         # to do - choose_data
@@ -351,6 +348,9 @@ class input_data:
 
                 if args.fout_num_postprocess is not None:
                     d['fout_num_postprocess'] = args.fout_num_postprocess
+                else:
+                    d["fout_num_postprocess"] = None
+
 
                 self.ttk_scalar_data = d
 
