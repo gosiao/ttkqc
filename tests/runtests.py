@@ -69,25 +69,25 @@ def read_input(finp):
 #
 #
 #
-testdirs=["multidim_many_calc_bottleneck"]
-
-for d in testdirs:
-    print("running test: ", d)
-    # we assume that start_data.vti is in the directory
-    os.chdir(d)
-    inp = "test.inp"
-    args=read_input(inp)
-    data = ttkqc.process_input.input_data(args)
-    data.parse_options()
-    data.print_options()
-
-    fulloptions = data.options
-    #
-    #
-    ttk_btln = ttkmulti.ttk_multi(data.options, data.ttk_multi_data)
-    ttk_btln.bottleneck_distance()
-    os.chdir('../')
-    print("-------------------------------------------")
+#testdirs=["multidim_many_calc_bottleneck"]
+#
+#for d in testdirs:
+#    print("running test: ", d)
+#    # we assume that start_data.vti is in the directory
+#    os.chdir(d)
+#    inp = "test.inp"
+#    args=read_input(inp)
+#    data = ttkqc.process_input.input_data(args)
+#    data.parse_options()
+#    data.print_options()
+#
+#    fulloptions = data.options
+#    #
+#    #
+#    ttk_btln = ttkmulti.ttk_multi(data.options, data.ttk_multi_data)
+#    ttk_btln.bottleneck_distance()
+#    os.chdir('../')
+#    print("-------------------------------------------")
 
 # tests new
 testdirs=["multidim_many_calc_ms_real"]

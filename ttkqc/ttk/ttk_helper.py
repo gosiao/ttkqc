@@ -163,15 +163,16 @@ def save_data(data_type, data_object, file_out, postprocess=None):
             all_outputs['field_data'] = fout
 
     if postprocess is not None:
-        postprocess_num_data(postprocess, all_outputs)
+        postprocess_num_data(postprocess, all_outputs, file_out)
 
 #  save screenshots:
 
 
 
-def postprocess_num_data(options, outputs):
+def postprocess_num_data(options, outputs, file_out):
 
     print('options = ', options)
+    print('file_out! = ', file_out)
     for opt in options:
         w = opt.strip().split(':')
         print('w! = ', w)
@@ -200,11 +201,13 @@ def postprocess_num_data(options, outputs):
         combined_data = []
         if len(list_point_data) == 2*len(list_cell_data):
             keys = 'PairIdentifier,PairType,Persistence,cp1_x,cp1_y,cp1_z,cp1_birth,cp1_death,cp2_x,cp2_y,cp2_z,cp2_birth,cp2_death'.split(',')
-            fout = 'cps_summary.csv'
-            fout_type_m1 = 'cps_summary_pairtype_m1.csv'
-            fout_type_0  = 'cps_summary_pairtype_0.csv'
-            fout_type_1  = 'cps_summary_pairtype_1.csv'
-            fout_type_2  = 'cps_summary_pairtype_2.csv'
+            p, n = os.path.split(file_out)
+            fout = os.path.join(p, "cps_summary_"+n)
+            print('fout! = ', fout)
+            fout_type_m1 = os.path.join(p, "cps_summary_pairtype_m1_"+n)
+            fout_type_0  = os.path.join(p, "cps_summary_pairtype_0_"+n)
+            fout_type_1  = os.path.join(p, "cps_summary_pairtype_1_"+n)
+            fout_type_2  = os.path.join(p, "cps_summary_pairtype_2_"+n)
             with open(fout, 'w') as f:
                 f.write(','.join(keys)+'\n')
             with open(fout_type_m1, 'w') as f:

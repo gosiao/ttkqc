@@ -19,7 +19,7 @@
 --choose_data=log_s1
 #
 # output files:
---fout_num=cps.csv
+--fout_num=cps_s.csv
 --fout_num_scope=full
 --fout_num_postprocess=cps_summary
 #--fout_num_postprocess=cps_summary:sort_by_pairs:choose_pair_type(m1)
