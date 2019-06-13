@@ -136,6 +136,14 @@ class input_data:
                                         postprocess the data
                                         ''')
 
+        optional_args.add_argument('--fout_vis_png',
+                                   dest='fout_vis_png',
+                                   action='store',
+                                   required=False,
+                                   help='''
+                                        save png file with final plot
+                                        ''')
+
 
 
         # other arguments depend on the ttk_task:
@@ -232,8 +240,8 @@ class input_data:
         if args.fout_num_scope is not None:
             self.options["fout_num_scope"] = args.fout_num_scope
 
-        if args.fout_vis is not None:
-            self.options["fout_vis"] = args.fout_vis
+        if args.fout_vis_png is not None:
+            self.options["fout_vis_png"] = args.fout_vis_png
 
 
         if args.resampled_dim is not None:
