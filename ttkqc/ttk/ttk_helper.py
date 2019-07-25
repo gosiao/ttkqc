@@ -102,7 +102,7 @@ def calculator(name, function, source_file=None, source_other=None):
 
 
 
-def save_num_data(out_file, out_data, out_type=None, precision=6, sci_notation=1):
+def save_num_data(out_file, out_data, out_type=None, precision=12, sci_notation=1):
 
     if out_type is not None:
         SaveData(out_file,
